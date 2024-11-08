@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: ehd58d8pl-python
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: ehd58d8pl-python 
+  name: ehd58d8pl-python
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: ehd58d8pl-python
+    weight: 100 
